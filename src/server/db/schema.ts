@@ -16,26 +16,35 @@ import { type AdapterAccount } from "next-auth/adapters";
  */
 export const createTable = sqliteTableCreator((name) => `post_it_${name}`);
 
-export const posts = createTable(
-  "post",
-  {
-    id: int("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
-    name: text("name", { length: 256 }),
-    createdById: text("created_by", { length: 255 })
-      .notNull()
-      .references(() => users.id),
-    createdAt: int("created_at", { mode: "timestamp" })
-      .default(sql`(unixepoch())`)
-      .notNull(),
-    updatedAt: int("updatedAt", { mode: "timestamp" }).$onUpdate(
-      () => new Date()
-    ),
-  },
-  (example) => ({
-    createdByIdIdx: index("created_by_idx").on(example.createdById),
-    nameIndex: index("name_idx").on(example.name),
-  })
-);
+// export const posts = createTable(
+//   "post",
+//   {
+//     id: int("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
+//     name: text("name", { length: 256 }),
+//     createdById: text("created_by", { length: 255 })
+//       .notNull()
+//       .references(() => users.id),
+//     createdAt: int("created_at", { mode: "timestamp" })
+//       .default(sql`(unixepoch())`)
+//       .notNull(),
+//     updatedAt: int("updatedAt", { mode: "timestamp" }).$onUpdate(
+//       () => new Date()
+//     ),
+//   },
+//   (example) => ({
+//     createdByIdIdx: index("created_by_idx").on(example.createdById),
+//     nameIndex: index("name_idx").on(example.name),
+//   })
+// );
+
+export const posts = createTable("post", {
+  userID: text("user_id", { length: 255 }).references(() => users.id),
+  content: text("content", {length: 255 }),
+})
+
+export const postsRelations = relations(posts, ({ one }) => ({
+  user: one(users, { fields: [posts.userID], references: [users.id]}),
+}))
 
 export const users = createTable("user", {
   id: text("id", { length: 255 })
@@ -52,6 +61,7 @@ export const users = createTable("user", {
 
 export const usersRelations = relations(users, ({ many }) => ({
   accounts: many(accounts),
+  posts: many(posts),
 }));
 
 export const accounts = createTable(
