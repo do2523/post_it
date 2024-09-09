@@ -1,8 +1,7 @@
+import { ProfileComponent } from "../_components/profile-user";
+
 export default function Profile() {
     return (
-    <main>
-        <h1>Profile</h1>
-        <h2>User: </h2>
-    </main>
+    <ProfileComponent />
     )
 }
