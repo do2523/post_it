@@ -15,24 +15,24 @@ export const postRouter = createTRPCRouter({
       return {
         greeting: `Hello ${input.text}`,
       };
-    }),
+  }),
 
-    all: publicProcedure.query(async ({ ctx }) => {
-      return await ctx.db.query.posts.findMany();
-    }),
+  all: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.db.query.posts.findMany();
+  }),
 
-    create: protectedProcedure
-    .input(
-      z.object({
-        content: z.string(),
-      }),
-    )
-    .mutation(async ({ input, ctx }) => {
-      await ctx.db.insert(posts).values({
-        userID: ctx.session.user.id,
-        content: input.content,
-      })
+  create: protectedProcedure
+  .input(
+    z.object({
+      content: z.string(),
     }),
+  )
+  .mutation(async ({ input, ctx }) => {
+    await ctx.db.insert(posts).values({
+      userID: ctx.session.user.id,
+      content: input.content,
+    })
+  }),
 
   // create: protectedProcedure
   //   .input(z.object({ name: z.string().min(1) }))
