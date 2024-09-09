@@ -16,9 +16,8 @@ export function PostList() {
 
     return (
         <>
-        <h1>Chat</h1>
         {data.map((post, i) => (
-            <div key={i}>{post.content}</div>
+            <div className="hover:text-black border rounded-full p-2 w-full hover:bg-blue-500" key={i}>{post.content}</div>
         ))}
         </>
     )
