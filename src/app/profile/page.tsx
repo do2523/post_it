@@ -1,7 +1,9 @@
-import { ProfileComponent } from "../_components/profile-user";
+import { ProfileComponent } from "../_components/user-profile";
 
 export default function Profile() {
     return (
-    <ProfileComponent />
+        <>
+            <ProfileComponent />
+        </>
     )
 }
