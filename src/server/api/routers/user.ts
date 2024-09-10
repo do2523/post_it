@@ -6,7 +6,7 @@ import { eq } from "drizzle-orm";
 export const userRouter = createTRPCRouter({
     // usage example: api.user.getById(id);
     getById: publicProcedure.input(z.string()).query(async ({ ctx, input }) => {
-        let user = await ctx.db.select().from(users).where(eq(users.id, input));
+        const user = await ctx.db.select().from(users).where(eq(users.id, input));
 
         // this should never happen
         if (user.length > 1) {
