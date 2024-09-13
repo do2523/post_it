@@ -3,11 +3,13 @@ import { ProfileComponent } from "../_components/user-profile";
 
 export default function Profile() {
     return (
-        <div className="bg-slate-500 text-white flex flex-col p-3 rounded-xl">
-            <div className="items-center justify-center flex">
+        <div className="bg-slate-500 text-white flex flex-col p-3 rounded-xl h-screen">
+            <div className="items-center justify-center flex m-auto">
                 <ProfileComponent />
             </div>
-            <Button href="../"/>
+            <div className="bottom-0 left-0 absolute m-5">
+                <Button href="../"/>
+            </div>
         </div>
     )
 }
