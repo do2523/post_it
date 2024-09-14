@@ -1,5 +1,5 @@
 import Button from "../_components/button";
-import { ProfileComponent } from "../_components/user-profile";
+import { ProfileComponent } from "./_components/user-profile";
 
 export default function Profile() {
     return (
