@@ -1,5 +1,4 @@
 import { getServerAuthSession } from "note/server/auth";
-import { InputBar } from "../_components/input-bar";
 import { PostList } from "../_components/post-list";
 import Link from "next/link";
 
