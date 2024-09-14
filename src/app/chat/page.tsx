@@ -1,12 +1,13 @@
 import { getServerAuthSession } from "note/server/auth";
-import { InputBar } from "../_components/input-bar";
-import { PostList } from "../_components/post-list";
+import { PostList } from "./_components/post-list";
 import Link from "next/link";
+import TitleBar from "./_components/title-bar";
 
 export default async function Chat() {
     const session = await getServerAuthSession();
     return (
         <div>
+            <TitleBar title="Welcome to Chat"/>
             <Link href="/">
                 Homepage
             </Link>
@@ -16,7 +17,6 @@ export default async function Chat() {
                 className="flex justify-center items-center"
                 style={{ height: "100vh", flexDirection: "column" }}
                 >
-                <h1 className="text-5xl hover:text-black cursor-pointer transition hover:bg-blue-500 border rounded-full p-4">Welcome to Chat</h1>
                 <br />
                 <PostList />
                 
