@@ -1,10 +1,10 @@
-import { type Config } from "drizzle-kit";
+import { type Config } from "drizzle-kit"
 
 import { env } from "note/env";
 
 export default {
   schema: "./src/server/db/schema.ts",
-  dialect: "sqlite",
+  dialect: "postgresql",
   dbCredentials: {
     url: env.POSTGRES_URL,
   },
