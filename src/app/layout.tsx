@@ -18,9 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
+        <div className="flex h-screen flex-col md:flex-row md:overflow-hidden relative">
           <Sidebar />
-          <div className="flex-grow md:overflow-y-auto ml-16">
+          <div className="flex-grow md:overflow-y-auto relative ml-16">
             <TRPCReactProvider>{children}</TRPCReactProvider>
           </div>
         </div>
