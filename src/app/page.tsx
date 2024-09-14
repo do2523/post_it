@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import { PostInput } from "./_components/post-input";
 // import { LatestPost } from "note/app/_components/post";
 import { getServerAuthSession } from "note/server/auth";
