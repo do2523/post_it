@@ -1,5 +1,5 @@
 import { getServerAuthSession } from "note/server/auth";
-import { PostList } from "../_components/post-list";
+import { PostList } from "./_components/post-list";
 import Link from "next/link";
 
 export default async function Chat() {

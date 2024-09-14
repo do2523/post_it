@@ -1,5 +1,5 @@
 import React from "react";
-import { InputBar } from "../_components/input-bar";
+import { InputBar } from "./_components/input-bar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return(

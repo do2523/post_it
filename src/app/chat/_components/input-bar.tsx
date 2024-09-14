@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { api } from "../../trpc/react"
+import { api } from "../../../trpc/react"
 
 export function InputBar() {
     const [text, setText] = useState("");
