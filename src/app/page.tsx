@@ -1,8 +1,15 @@
 import Link from "next/link";
+<<<<<<< HEAD
 import { PostInput } from "./_components/post-input";
 // import { LatestPost } from "note/app/_components/post";
 import { getServerAuthSession } from "note/server/auth";
 import { PostList } from "./_components/post-list";
+=======
+
+// import { LatestPost } from "note/app/_components/post";
+import { getServerAuthSession } from "note/server/auth";
+import { api, HydrateClient } from "note/trpc/server";
+>>>>>>> f40bba7bb0561281fa6e0661d6cb25ae0b9a486c
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -19,7 +26,6 @@ export default async function Home() {
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
               href="/profile"
-              target="_blank"
             >
               <h3 className="text-2xl font-bold">Profile →</h3>
               <div className="text-lg">
@@ -29,7 +35,6 @@ export default async function Home() {
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
               href="/chat"
-              target="_blank"
             >
               <h3 className="text-2xl font-bold">Chat →</h3>
               <div className="text-lg">
